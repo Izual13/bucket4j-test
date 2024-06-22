@@ -53,6 +53,7 @@ class Bucket4jTestApplicationTests {
             for (int i = 1; i < 100000; i++) {
                 BucketProxy bucket = proxyManager.getProxy(i * 100000L, () -> bucketConfiguration);
                 System.out.println(bucket.getAvailableTokens());
+                Thread.sleep(200);
             }
         }).start();
 
