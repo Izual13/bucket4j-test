@@ -21,7 +21,7 @@ class TestcontainersConfiguration {
     }
 
     @Bean
-    DataSource dataSource(MSSQLServerContainer container) {
+    DataSource dataSource(MSSQLServerContainer<?> container) {
         HikariConfig hikariConfig = new HikariConfig();
         hikariConfig.setJdbcUrl(container.getJdbcUrl());
         hikariConfig.setUsername(container.getUsername());
