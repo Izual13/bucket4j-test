@@ -16,9 +16,8 @@ class TestcontainersConfiguration {
     @Bean
     @ServiceConnection
     MSSQLServerContainer<?> sqlServerContainer() {
-        return new MSSQLServerContainer<>(DockerImageName.parse("mcr.microsoft.com/mssql/server:latest"))
-                .acceptLicense()
-                .withPassword("A_Str0ng_Required_PasswordA_Str0ng_Required_PasswordA_Str0ng_Required_PasswordA_Str0ng_Required_Password");
+        return new MSSQLServerContainer<>(DockerImageName.parse("mcr.microsoft.com/mssql/server:2019-latest"))
+                .acceptLicense();
     }
 
     @Bean
