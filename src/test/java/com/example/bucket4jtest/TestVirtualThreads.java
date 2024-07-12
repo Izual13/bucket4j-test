@@ -15,12 +15,13 @@ import static java.lang.Thread.sleep;
 @SpringBootTest
 
 //-Djdk.tracePinnedThreads=full
+//-agentpath:libasyncProfiler.so=start,event=cpu,alloc=2m,lock=10ms,loop=1m,jfrsync=+jdk.VirtualThreadStart+jdk.VirtualThreadEnd+jdk.VirtualThreadPinned+jdk.VirtualThreadSubmitFailed,file=profile-%t.jfr
 public class TestVirtualThreads {
 
 
     @Test
     void testVt() throws InterruptedException {
-        int count = 1;
+        int count = 100000;
         var cdl = new CountDownLatch(count);
         var obj = new Object(); // something to lock
 
